@@ -7,9 +7,7 @@ import Image from "next/image";
 
 export default async function BookDetailsPage({ params, }: { params: Promise<{ bookDetails: string }> }) {
     const { bookDetails } = await params;
-    const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SITE_URL}/db.json`
-    );
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/db.json`);
     const data: BookDataType[] = await response.json();
 
     const filteredBook = data.find(book => book.bookId === Number(bookDetails));
