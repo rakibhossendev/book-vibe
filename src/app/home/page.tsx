@@ -4,7 +4,7 @@ import HeroSection from "../components/Hero/Hero";
 import { Suspense } from "react";
 
 const bookDataPromise = async (): Promise<BookDataType[]> => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/db.json`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/db.json`);
     const data = response.json()
     return data;
 }
