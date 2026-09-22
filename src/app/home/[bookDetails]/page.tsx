@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default async function BookDetailsPage({ params, }: { params: Promise<{ bookDetails: string }> }) {
     const { bookDetails } = await params;
-    const response = await fetch("https://raw.githubusercontent.com/rakibhossendev/book-vibe/main/public/db.json");
+    const response = await fetch("https://raw.githubusercontent.com/rakibhossendev/book-vibe/main/public/db.json",{cache:"force-cache"});
     const data: BookDataType[] = await response.json();
 
     const filteredBook = data.find(book => book.bookId === Number(bookDetails));
